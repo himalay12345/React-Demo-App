@@ -170,6 +170,6 @@ const SongApp = () => {
 
 
 
-export default VideoSearchApp
+export default SearchApp
 
 
