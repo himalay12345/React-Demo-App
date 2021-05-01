@@ -1,4 +1,5 @@
 import React from 'react';
+import {BrowserRouter, Route} from 'react-router-dom';
 import unsplash from '../Api/unsplash';
 import youtube from '../Api/youtube';
 import CommentDetail from './CommentDetail';
@@ -13,10 +14,11 @@ import VideoList from './VideoList';
 import VideoPlayer from './VideoPlayer';
 import SongList from './SongList'
 import SongDetail from './SongDetail';
+import PostsList from './PostsList';
 
 
 
-const App = () => {
+const CommentApp = () => {
     return (
         <div className="ui container comments" style={{marginTop:'50px'}}>
           <ApprovalCard> 
@@ -168,8 +170,28 @@ const SongApp = () => {
   )
 }
 
+const PostsApp = () => {
+  return <div style={{padding:'10px'}}><PostsList/></div>
+}
+
+const App = () => {
+  return(
+    <div>
+      <BrowserRouter>
+      <div>
+        <Route path="/" exact component={CommentApp} />
+        <Route path="/weather" component={WeatherApp} />
+        <Route path="/image-search" component={SearchApp} />
+        <Route path="/video-search" component={VideoSearchApp} />
+        <Route path="/songs" component={SongApp} />
+        <Route path="/posts" component={PostsApp} />
+        </div>
+      </BrowserRouter>
+    </div>
+  )
+}
 
 
-export default SearchApp
+export default App
 
 
